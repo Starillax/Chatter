@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<% if (tipo === undefined) { %>
+    <h1>Você não faz parte deste grupo!</h1>
+    <br>
+    <a href="/">Voltar à página inicial</a>
+<% } else { %>
+
+<%- include('includes/head') %>
+
+<body>
+
+    <%- include('includes/sidebar') %>
+    <div class="content">
+        <form action="/mensagens/enviar" method="POST">
+            <h1><%= grupo.nome %></h1>
+
+             <!-- msgs
+                <div class="msg">
+                    <tr>
+                    <td>mensagem.usuario</td>
+                    <br>
+                    <td>mensagem.conteudo</td>
+                    <br>
+                    <td>mensagem.datetime</td>    
+                    </tr>
+                </div>
+            <br>
+            PAGINAÇÃO -->
+            <% if (tipo.tipo == "admin" || tipo.tipo == "escritor") { %>
+                <textarea name="mensagem" id="mensagem" cols="30" rows="10"></textarea>
+                <br><br>
+                <button type="submit">Enviar mensagem</button>
+            <% } %>
+        </form>
+    </div>
+    
+    <div class="right-div">
+        <h2>Chatter</h2>
+        <table>
+            <tr>
+                <td>Membros:</td>
+            </tr>
+            <% if (tipo.tipo == "admin") { %>
+                <% grupos_usuarios.forEach(grupo_usuario => { %>
+                    <tr>
+                        <% if (user.id != grupo_usuario.usuario_id) { %>
+                            <td><%= grupo_usuario.usuario %> (<%= grupo_usuario.cargo %>) [<a href="/grupos/<%= grupo.id %>/removerMembro/<%= grupo_usuario.usuario_id %>" title="Retirar Usuário do Grupo" class="retirar-membro">X</a>]</td>
+                        <% } else { %>
+                            <td><%= grupo_usuario.usuario %> (<%= grupo_usuario.cargo %>)</td>
+                        <% } %>
+                    </tr>
+                <% }) %>
+                </table>
+                <a href="/grupos/<%= grupo.id %>/addMembro">Adicionar Membro ao Grupo</a>
+            <% } else { %>
+                <% grupos_usuarios.forEach(grupo_usuario => { %>
+                    <tr>
+                        <td><%= grupo_usuario.usuario %> (<%= grupo_usuario.cargo %>)</td>
+                    </tr>
+                <% }) %>
+                </table>
+                <td><a href="/grupos/<%= grupo.id %>/removerMembro/<%= user.id %>">Sair deste Grupo</a></td>
+            <% } %>
+    </div>
+    
+</body>
+
+<% } %>
+
+</html>

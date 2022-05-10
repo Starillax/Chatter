@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    font-family: "Lato", sans-serif;
+    background-color: #fff67e;
+  }
+  
+  .sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #ffee00;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+
+  .sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+  }
+  
+  .sidebar h3 {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+  }
+  
+  .sidebar a:hover {
+    background-color: rgb(184, 83, 0);
+    color: white;
+  }
+  
+  div.content {
+    margin-left: 200px;
+    margin-right: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+    word-wrap:break-word; 
+    display:inline-block;
+  }
+  
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+  }
+  
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+  }
+
+  .right-div {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #ffee00;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  .right-div h2 {
+    text-align: center;
+    text-decoration: none;
+    font-size: 30px;
+    color: #000000;
+  }
+  
+  .right-div table {
+    padding: 6px 8px 20px 16px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #000000;
+  }
+
+  .right-div a {
+    padding: 6px 8px 20px 16px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #6b6b6b;
+  }
+
+  .right-div a.retirar-membro {
+    padding: 0;
+  }
+  
+  .right-div a:hover {
+    color: #c0c0c0;
+  }
+
+  #add_membro_input {
+    display: inline;
+    width: 155.5%;
+  }

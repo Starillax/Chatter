@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<%- include('includes/head') %>
+
+<body>
+
+    <%- include('includes/sidebar') %>    
+
+      <div class="content">
+        <h1>Chatter</h1>
+        <h3>Por Rodrigo Martins - 4C</h3>
+        <br>
+      <table class="grupo" border="1px solid black">
+          <tr>
+            <th>Nome</th>
+            <th>Quantidade de Membros</th>
+            <th></th>
+          </tr>
+          <% grupos.forEach(grupo => { %>
+            <tr>
+              <td><%= grupo.nome %></td>
+              <td><%= grupo.nmro_membros %></td>
+              <% if (user !== undefined) { %>
+                <td> <a href="/grupos/<%= grupo.id %>"> Abrir Grupo </a> </td>
+              <% } %>    
+            </tr>
+          <% }); %>
+      </table>
+      </div>
+</body>
+
+</html>

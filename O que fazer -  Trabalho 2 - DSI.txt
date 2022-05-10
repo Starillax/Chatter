@@ -1,0 +1,38 @@
+* Usuário (feito)
+    - Cadastro
+    - Login
+
+    ^ Atributos (feito)
+        - ID (pk)
+        - Nome
+        - E-mail
+        - Senha
+
+* Grupo
+    - Criação por um usuário (o usuário que o criou se torna seu admin) (feito)
+    - Adição de usuários para o grupo ao informar o e-mail dos mesmos. Também é preciso se o usuários adicionado será um leitor (só lê as mensagens) ou escritor (lê e envia mensagens). Caso o e-mail não esteja registrado no sistema, enviar mensagem de erro. (feito +/-)
+    - Lista de todos os grupos, com seus nomes, quantidade de membros e nome de quem fez o site (eu), na página inicial (feito)
+    - Lista de grupos os quais o usuário faz parte, filtrados em grupos os quais ele é admin e os que ele é membro (leitor ou escritor)
+    - Lista de membros de um grupo, com seus nomes e "cargos" (feito)
+    - Membro pode se remover de um grupo, enquanto admins podem remover membros do seu grupo (feito)
+ 
+    ^ Atributos (feito)
+        - ID (pk)
+        - Nome
+
+    + Mensagens (pertencem a grupos e usuários, só aparecem em grupos)
+            ^ Atributos (feito)
+            - ID (pk)
+            - Conteudo
+            - Datetime
+            - Usuario (fk, autor da mensagem)
+            - Grupo (fk, grupo no qual ele foi enviada)
+
+            - Admin e escritor podem enviar mensagens no grupo, leitor só pode lê-las.
+
+* Grupo-Usuario
+    ^ Atributos (feito)
+        - ID (pk)
+        - Usuario (fk)
+        - Grupo (fk)
+        - Tipo (admin, escritor ou leitor)

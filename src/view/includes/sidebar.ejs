@@ -1,0 +1,14 @@
+<div class="sidebar">
+    <% if (user !== undefined) { %>
+        <h3 id="bemvinde">Bem-vinde, <%= user.nome %></h3>
+        <a href="/grupos" class="active"><div class="Link">Casa</div></a>
+        <a href="/grupos/form_grupo"><div class="Link">Criar um grupo</div></a>
+        <a href="/grupos/meus_grupos/<%= user.id %>"><div class="Link">Meus grupos</div></a>
+        <a id="login" href="/users/user_login"><div class="Link">Entrar com outra conta</div></a>
+        <a href="/users/logout"><div class="Link">Sair</div></a>
+    <%} else { %>
+        <a id="casa" href="/grupos"><div class="Link">Casa</div></a>
+        <a id="cadastro" href="/users/user_cadastro"><div class="Link">Cadastrar-se</div></a>
+        <a id="login" href="/users/user_login"><div class="Link">Entrar no sistema</div></a>
+    <%}%>
+</div>
